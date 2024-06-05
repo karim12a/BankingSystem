@@ -18,7 +18,7 @@ public class BankAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private double balance ;
-    private Date CreatedAt;
+    private Date createdAt;
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
     @ManyToOne
