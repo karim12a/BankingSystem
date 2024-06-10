@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,6 +16,5 @@ public class CurrentAccountDTO {
     private Date createdAt;
     private AccountStatus accountStatus;
     private CustomerDTO customerDto;
-    private List<AccountOperationDTO> accountOperations;
     private double overDraft;
 }
