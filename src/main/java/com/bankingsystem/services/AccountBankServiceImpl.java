@@ -54,7 +54,6 @@ public class AccountBankServiceImpl implements AccountBankService {
 
     @Override
     public BankAccountDTO getBankAccount(String accountId) {
-
         return null;
     }
 
