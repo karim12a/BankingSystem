@@ -11,6 +11,8 @@ import java.util.List;
 
 @Data
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type", length = 4)
 @NoArgsConstructor
 @AllArgsConstructor
 public class BankAccount {
@@ -18,7 +20,7 @@ public class BankAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private double balance ;
-    private Date CreatedAt;
+    private Date createdAt;
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
     @ManyToOne
