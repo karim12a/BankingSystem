@@ -9,6 +9,7 @@ import com.bankingsystem.nums.OperationType;
 import com.bankingsystem.repositories.AccountOperationRepository;
 import com.bankingsystem.repositories.BankAccountRepository;
 import com.bankingsystem.repositories.CustomerRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class AccountBankServiceImpl implements AccountBankService {
     private final CustomerRepository customerRepository;
     private final BankAccountRepository bankAccountRepository;
@@ -48,7 +50,7 @@ public class AccountBankServiceImpl implements AccountBankService {
     @Override
     public List<CustomerDTO> listCustomers() {
        List<Customer> customerList =  customerRepository.findAll();
-       return mappers.customerToDtoList(customerList);
+       return mappers.customerToDto(customerList);
 
     }
 
@@ -125,7 +127,7 @@ public class AccountBankServiceImpl implements AccountBankService {
     @Override
     public List<AccountOperationDTO> accountHistory(String accountId) {
       List<AccountOperation> accountOperationList=  accountOperationRepository.findByBankAccountId(accountId);
-       return mappers.accountOperationToDTOList(accountOperationList);
+       return mappers.accountOperationToDTO(accountOperationList);
     }
 
     @Override
@@ -136,6 +138,6 @@ public class AccountBankServiceImpl implements AccountBankService {
     @Override
     public List<CustomerDTO> searchCustomers(String keyWord) {
         List<Customer> customerList =  customerRepository.searchCustomer(keyWord);
-        return mappers.customerToDtoList(customerList);
+        return mappers.customerToDto(customerList);
     }
 }

@@ -16,7 +16,7 @@ public class Mappers {
    public CustomerDTO customerToDto(Customer customer){
         return modelMapper.map(customer, CustomerDTO.class);
     }
-    public List<CustomerDTO> customerToDtoList(List<Customer> customerList){
+    public List<CustomerDTO> customerToDto(List<Customer> customerList){
         return customerList.stream().map(this::customerToDto).toList();
     }
     public SavingAccount savingAccountToEntity(SavingAccountDTO savingAccountDTO){
@@ -41,10 +41,10 @@ public class Mappers {
     public AccountOperation accountOperationToEntity(AccountOperationDTO accountOperationDTO){
         return modelMapper.map(accountOperationDTO, AccountOperation.class);
     }
-    public List<AccountOperation> accountOperationToEntityList (List<AccountOperationDTO> accountOperationDTOList){
+    public List<AccountOperation> accountOperationToEntity (List<AccountOperationDTO> accountOperationDTOList){
         return accountOperationDTOList.stream().map(this::accountOperationToEntity).toList();
     }
-    public List<AccountOperationDTO> accountOperationToDTOList(List<AccountOperation> accountOperationList){
+    public List<AccountOperationDTO> accountOperationToDTO(List<AccountOperation> accountOperationList){
         return accountOperationList.stream().map(this::accountOperationToDTO).toList();
     }
 }
